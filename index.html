@@ -53,7 +53,8 @@
                   <div class="col-md-6">
                         <div class="gap">
                               <h4>Deposit</h4>
-                              <input id="depositAmount" class=" form-control" type="text" placeholder="$ amount want to Deposit">
+                              <input id="depositAmount" class=" form-control" type="text"
+                                    placeholder="$ amount want to Deposit">
                               <br>
                               <button id="depsitBtn" class="btn btn-success">Deposit</button>
                         </div>
@@ -62,7 +63,8 @@
                         <div class="gap">
 
                               <h4>Withdraw</h4>
-                              <input id="withdrawInt" class=" form-control" type="text" placeholder="$ amount want to Withdraw">
+                              <input id="withdrawInt" class=" form-control" type="text"
+                                    placeholder="$ amount want to Withdraw">
                               <br>
                               <button id="withdrawBtn" class="btn btn-success">Withdraw</button>
                         </div>
@@ -77,50 +79,50 @@
                   const loginArea = document.getElementById("login-area");
                   loginArea.style.display = 'none';
 
-                  const tranArea =document.getElementById("transaction-area");
-                  tranArea.style.display="block";
+                  const tranArea = document.getElementById("transaction-area");
+                  tranArea.style.display = "block";
             })
-            
+
             // deposit btn handler here
             const depositBtn = document.getElementById("depsitBtn");
-            depositBtn.addEventListener("click",function(){
-                  
+            depositBtn.addEventListener("click", function () {
+
                   const depositAmount = document.getElementById("depositAmount").value;
-                  const amountNum =parseFloat(depositAmount);
+                  const amountNum = parseFloat(depositAmount);
 
-                  spantext("currentDpsAmount",amountNum);
+                  spantext("currentDpsAmount", amountNum);
 
-                  spantext("currentBalance",amountNum);
-                  
+                  spantext("currentBalance", amountNum);
 
 
-                  document.getElementById("depositAmount").value="";
+
+                  document.getElementById("depositAmount").value = "";
             })
             // withdraw btn handler here
-            const withdrawBtn =document.getElementById("withdrawBtn")
-            withdrawBtn.addEventListener("click",function(){
-                  const withdrawInt= getInputNum("withdrawInt");
-                  
-                  spantext("withdrawAmount",withdrawInt);
+            const withdrawBtn = document.getElementById("withdrawBtn")
+            withdrawBtn.addEventListener("click", function () {
+                  const withdrawInt = getInputNum("withdrawInt");
 
-                  const currentBalance =document.getElementById("currentBalance").innerText;
-                  const currentBalanceNum =parseFloat(currentBalance);
-                  document.getElementById("currentBalance").innerText=currentBalanceNum-withdrawInt;
-                  document.getElementById("withdrawInp").value ="";
+                  spantext("withdrawAmount", withdrawInt);
+
+                  spantext("currentBalance", -1 * withdrawInt);
+
+
+                  document.getElementById("withdrawInp").value = "";
 
             })
             // getInputNum
-            function getInputNum(id){
-                  const amount =document.getElementById(id).value;
-                  const amountNum =parseFloat(amount);
+            function getInputNum(id) {
+                  const amount = document.getElementById(id).value;
+                  const amountNum = parseFloat(amount);
                   return amountNum
             }
             // parsefloat function
-            function spantext(id,Num){
-                  const Balance =document.getElementById(id).innerText;
-                  const BalanceNum=parseFloat(Balance);
-                  const totalNumber =Num+BalanceNum;
-                  document.getElementById(id).innerText=totalNumber; 
+            function spantext(id, Num) {
+                  const Balance = document.getElementById(id).innerText;
+                  const BalanceNum = parseFloat(Balance);
+                  const totalNumber = Num + BalanceNum;
+                  document.getElementById(id).innerText = totalNumber;
             }
       </script>
 
